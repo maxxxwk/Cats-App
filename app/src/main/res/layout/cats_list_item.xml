@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/cats_list_item_padding">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCatImage"
+        android:layout_width="@dimen/cat_image_width"
+        android:layout_height="@dimen/cat_image_height"
+        android:layout_gravity="center" />
+</FrameLayout>

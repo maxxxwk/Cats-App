@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cats_recycler_view_marginVertical">8dp</dimen>
+    <dimen name="cats_list_item_padding">16dp</dimen>
+    <dimen name="cat_image_width">80dp</dimen>
+    <dimen name="cat_image_height">80dp</dimen>
+</resources>
