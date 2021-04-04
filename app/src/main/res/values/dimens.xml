@@ -2,6 +2,9 @@
 <resources>
     <dimen name="cats_recycler_view_marginVertical">8dp</dimen>
     <dimen name="cats_list_item_padding">16dp</dimen>
-    <dimen name="cat_image_width">80dp</dimen>
-    <dimen name="cat_image_height">80dp</dimen>
+    <dimen name="cat_image_width">64dp</dimen>
+    <dimen name="cat_image_height">64dp</dimen>
+    <dimen name="cats_list_item_corners_radius">4dp</dimen>
+    <dimen name="cat_image_margin">16dp</dimen>
+    <dimen name="cats_list_item_margin">4dp</dimen>
 </resources>

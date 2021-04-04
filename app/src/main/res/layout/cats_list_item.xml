@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="@dimen/cats_list_item_padding">
+    android:layout_margin="@dimen/cats_list_item_margin"
+    app:cardBackgroundColor="@color/light_gray_f1"
+    app:cardCornerRadius="@dimen/cats_list_item_corners_radius">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCatImage"
         android:layout_width="@dimen/cat_image_width"
         android:layout_height="@dimen/cat_image_height"
-        android:layout_gravity="center" />
-</FrameLayout>
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/cat_image_margin" />
+</androidx.cardview.widget.CardView>

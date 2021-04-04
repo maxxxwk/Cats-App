@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.pmacademy.catsapp.*
 import com.pmacademy.catsapp.cats.data.Cat
 import com.pmacademy.catsapp.databinding.CatsFragmentBinding
 import javax.inject.Inject
 
-class CatsFragment private constructor() : Fragment(R.layout.cats_fragment) {
+class CatsFragment: Fragment(R.layout.cats_fragment) {
 
     companion object {
+        private const val ITEMS_COUNT_IN_RAW = 3
         fun newInstance() = CatsFragment()
     }
 
@@ -38,7 +39,7 @@ class CatsFragment private constructor() : Fragment(R.layout.cats_fragment) {
 
     private fun setupCatsRecyclerView() {
         with(binding.rvCats) {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(context, ITEMS_COUNT_IN_RAW)
             adapter = catsAdapter
             LinearUIPagination(this, viewModel::loadMoreCats)
         }

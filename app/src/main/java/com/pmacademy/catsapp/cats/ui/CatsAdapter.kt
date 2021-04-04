@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.pmacademy.catsapp.R
 import com.pmacademy.catsapp.databinding.CatsListItemBinding
 import com.pmacademy.catsapp.loadFromUrl
 import com.pmacademy.catsapp.cats.data.Cat
@@ -14,7 +15,7 @@ class CatsAdapter : ListAdapter<Cat, CatsAdapter.CatsViewHolder>(CatsDiffCallbac
     class CatsViewHolder(private val binding: CatsListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(cat: Cat) {
-            binding.ivCatImage.loadFromUrl(cat.avatarUrl)
+            binding.ivCatImage.loadFromUrl(cat.avatarUrl, R.drawable.loading_image_placeholder)
         }
     }
 
