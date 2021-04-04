@@ -10,7 +10,7 @@ import com.pmacademy.catsapp.cats.data.Cat
 import com.pmacademy.catsapp.databinding.CatsFragmentBinding
 import javax.inject.Inject
 
-class CatsFragment: Fragment(R.layout.cats_fragment) {
+class CatsFragment : Fragment(R.layout.cats_fragment) {
 
     companion object {
         private const val ITEMS_COUNT_IN_RAW = 3
@@ -50,6 +50,9 @@ class CatsFragment: Fragment(R.layout.cats_fragment) {
             when (it) {
                 is CatsState.Loading -> showLoading()
                 is CatsState.Content -> showContent(it.cats)
+                is CatsState.Error -> showError(
+                    it.message ?: getString(R.string.unknown_error_message)
+                )
             }
         }
     }
@@ -58,6 +61,7 @@ class CatsFragment: Fragment(R.layout.cats_fragment) {
         with(binding) {
             rvCats.show()
             pbLoading.hide()
+            tvErrorMessage.hide()
         }
         catsAdapter.submitList(cats)
     }
@@ -66,6 +70,18 @@ class CatsFragment: Fragment(R.layout.cats_fragment) {
         with(binding) {
             pbLoading.show()
             rvCats.hide()
+            tvErrorMessage.hide()
+        }
+    }
+
+    private fun showError(message: String) {
+        with(binding) {
+            pbLoading.hide()
+            rvCats.hide()
+            tvErrorMessage.apply {
+                text = message
+                show()
+            }
         }
     }
 }

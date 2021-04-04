@@ -1,6 +1,7 @@
 package com.pmacademy.catsapp.cats.data
 
 import com.pmacademy.catsapp.datasource.CatsService
+import com.pmacademy.catsapp.safeApiCall
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.util.concurrent.atomic.AtomicInteger
@@ -17,7 +18,7 @@ class CatsRepository @Inject constructor(
 
     private val pageNumber = AtomicInteger(START_PAGE)
 
-    suspend fun loadMore(): List<Cat> = withContext(dispatcher) {
+    suspend fun loadMore() = safeApiCall(dispatcher) {
         val cats = catsService.getCats(LIMIT, pageNumber.get())
         pageNumber.incrementAndGet()
         cats

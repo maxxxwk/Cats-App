@@ -6,5 +6,5 @@
     <dimen name="cat_image_height">64dp</dimen>
     <dimen name="cats_list_item_corners_radius">4dp</dimen>
     <dimen name="cat_image_margin">16dp</dimen>
-    <dimen name="cats_list_item_margin">4dp</dimen>
+    <dimen name="cats_list_item_margin">8dp</dimen>
 </resources>

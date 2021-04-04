@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pmacademy.catsapp.ResponseResult
 import com.pmacademy.catsapp.cats.data.CatsRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,7 +23,15 @@ class CatsViewModel @Inject constructor(private val catsRepository: CatsReposito
                 is CatsState.Content -> state.cats
                 else -> emptyList()
             }
-            _catsLiveData.value = CatsState.Content(downloadedCats + catsRepository.loadMore())
+            when (val catsResponse = catsRepository.loadMore()) {
+                is ResponseResult.Success -> {
+                    _catsLiveData.value = CatsState.Content(downloadedCats + catsResponse.data)
+                }
+                is ResponseResult.Failure -> {
+                    _catsLiveData.value =
+                        CatsState.Error(catsResponse.error.message)
+                }
+            }
         }
     }
 }
